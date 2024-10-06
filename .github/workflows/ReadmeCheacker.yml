@@ -1,18 +1,20 @@
-name : ReadmeCheacker
+name: ReadmeChecker
 
 on: 
-push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
     
 jobs: 
-  readmeCheacker:
-  runs-on: ubnutu-latest
-  steps: 
-    - uses: actions/cheackout@v2 
-    - name: Readmechecker
-    - run: | 
-        ls -ltr
-        if [ ! -f /tmp/foo.txt ]; then
-          echo "File not found!"
-        fi
+  readmeChecker:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v2 
+      
+      - name: Readme Checker
+        run: | 
+          ls -ltr
+          if [ ! -f /tmp/foo.txt ]; then
+            echo "File not found!"
+          fi
