@@ -1,0 +1,18 @@
+name : ReadmeCheacker
+
+on: 
+pull_request:
+  branches:
+    - main
+    
+jobs: 
+  readmeCheacker:
+  runs-on: ubnutu-latest
+  steps: 
+    - uses: actions/cheackout@v2 
+    - name: Readmechecker
+    - run: | 
+        ls -ltr
+        if [ ! -f /tmp/foo.txt ]; then
+          echo "File not found!"
+      fi
